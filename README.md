@@ -1,9 +1,9 @@
 # Grupo 16
 Este es el repositorio del *Grupo 16*, cuyos integrantes son:
 
-* Diego Saa - 201973068-1
-* Amanda Salinas - 201810013-7
-* Matias Vargas - 201973036-3
+* Diego Saa 
+* Amanda Salinas 
+* Matias Vargas 
 * **Tutor**: Ibet Lara
 
 ## Wiki
@@ -12,8 +12,6 @@ Puede acceder a la Wiki mediante el siguiente [enlace](https://gitlab.labcomp.cl
 
 ## Videos
 
-* [Video presentación cliente](https://youtu.be/xEYDTg0q1Ao)
-* [Video presentación avance 1](https://www.youtube.com/watch?v=nNSBgq4CnZk&feature=youtu.be&ab_channel=AmandaSalinas)
 * [Video presentación final](https://drive.google.com/file/d/1X4Phn2VVGvDbDZ2l15d36Sjd5EwXb-5s/view)
 
 ## Aspectos técnicos relevantes
