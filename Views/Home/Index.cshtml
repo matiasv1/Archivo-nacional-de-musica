@@ -1,0 +1,113 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Formulario
+<section>
+    <div class="container-fluid portada" style="display: inline-block; width: 100%; height: 350px;">
+         <img src="~/img/biblioteca-nacional.png" style="height: 250px;" class="rounded-circle p-4">
+         <h1 class="title-header w-20" style="height: 180px;">Biblioteca Nacional</h1>
+    </div>
+</section>
+<section >
+        <div class="fondoPortada pb-3" >
+          <h1 class="bordes fondo titulos text-center pt-2 pb-3 m-0"> Formulario de Consultas</h1>
+            <div class="container w-75">
+                <div class="row mt-4">
+                    <!-- Información -->
+                  <div class="hoja hoja2 col shadow m-3 pt-4 pb-5" >
+                      <div class="card  h-100 shadow mt-3 mb-3" style="margin: 0 auto;">
+                          <h1 class="titulo2 text-center"> <img src="~/logos/icons8-moleskine-48.png" class="mb-2 mt-2"> Información</h1>
+                          <img class="card-img-top" src="~/img/articles-96554_imagen_portada.thumb_principal.jpg" alt="Card image">
+                          <div class="card-body">
+                             <h4 class="card-title">Formulario de Consultas</h4>
+                             <p style="text-align: justify;" class="card-text"> ¿Necesitas ayuda con lo que buscas? Ya sean canciones, partituras, discos o simplemente información sobre artistas, solo llena el formulario a la derecha y nos encargaremos de buscarlo. Recuerda identificarte correctamente, así podremos hacer llegar a ti lo que necesites</p>
+                          </div>
+                      </div>
+                  </div>
+                    <!-- Formulario -->
+                    <div class="card hoja col m-3 w-50">
+                        <h1 class="titulo2 text-center pt-3 mb-3 " ><img src="~/logos/icons8-consultation-48.png" class="mb-2"> Ingrese su consulta</h1>
+                        <div class="hoja col m-2 w-95" style="margin: 0 auto;">
+                            <form asp-controller="Home" asp-action="Form_consulta" method="post" class="w-75 form shadow p-3 mb-4" >
+                                  <div class="mb-3 ">
+                                    <label class="form-label">Nombre y Apellidos:</label>
+                                    <input asp-for ="NombreUsuario"  class="form-control" id="email" placeholder="Ingrese Nombre y Apellidos" >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label class="form-label">Correo:</label>
+                                    <input  asp-for ="Email" class="form-control" id="pwd" placeholder="Ingrese Correo" required >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="pwd" class="form-label">Teléfono:</label>
+                                    <input  class="form-control" id="pwd" placeholder="Ingrese Teléfono" >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="pwd" class="form-label">Asunto:</label>
+                                    <input asp-for ="Asunto" type="text" class="form-control" id="pwd" placeholder="Ingrese Asunto" required >
+                                  </div>
+                                  <div class="mb-3">
+                                    <label for="pwd" class="form-label">Descripcion:</label>
+                                    <textarea asp-for ="Description" class="form-control" id="Control-area"  placeholder="Ingrese Descripción" rows="3" required></textarea>
+                                  </div>
+                                  <button type="submit" class="btn btn-primary">Enviar consulta</button>
+                            </form>
+                        </div>
+                    </div>         
+                </div>
+            </div>
+        </div>
+    <!-- Quienes somos -->
+    </section>
+    <section>
+      <div class="fondoPortada pt-3 pb-3"  >
+        <h1 class="bordes fondo titulos text-center pt-2 pb-3 m-0"> Quienes Somos</h1>
+          <div class="container w-75  ">
+              <div class="row mt-4">
+                  <!-- Archivo de Música -->
+                  <div class="hoja hoja2 col shadow m-3 pt-4 pb-5" >
+                      <div class="card  h-100 shadow mt-3 mb-3" style="margin: 0 auto;">
+                          <h1 class="titulo2 text-center pt-3 mb-4 " ><img src="~/logos/icons8-musical-score-48.png" class="mb-2"> Archivo de Musica</h1>
+                          <img class="card-img-top " src="~/img/articles-100166_imagen_portada.jpg" alt="Card image">
+                          <div class="card-body">
+                            <h4 class="card-title">Archivo Nacional de Música</h4>
+                            <p onclick="functionRed()" style="text-align: justify;" class="card-text">El Archivo de Música de la Biblioteca Nacional, fue fundado en noviembre de 1970 y su misión es preservar, investigar, difundir e incrementar las colecciones relacionadas con el Patrimonio Musical chileno y los fondos documentales que reflejan la creación musical de nuestro país, sin distinción de tipos de música, época, género, ni actividad musical.</p>
+                            <script type="text/javascript">
+                                function functionRed(){
+                                    window.location.href = "https://www.bibliotecanacional.gob.cl/sitio/Palabras-Clave/Archivo-de-Musica/";
+                                }
+                            </script>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- Encargada -->
+                  <div class="hoja hoja2 col shadow m-3  pt-4 pb-5" >
+                      <div class="card  mt-3 mb-3 h-100 shadow " style="margin: 0 auto;" >
+                          <h1 class="titulo2 text-center pt-3 mb-3 "><img src="~/logos/icons8-woman-technologist-48.png" class="mb-2"> Encargada</h1>
+                          <img class="card-img-top " src="~/img/Cecilia-Astudillo-Jefa-Archivo-Música-2-1024x683.jpg" alt="Card image">
+                          <div class="card-body">
+                            <h4 class="card-title">Cecilia Astudillo</h4>
+                            <p class="card-text"  style="text-align: justify;">Soy la Jefa del Archivo Nacional de Música de la Biblioteca Nacional. Encargada de dirigir y ejecutar la preservación del Patrimonio Musical Chileno con el fin de garantizar su integridad y su acceso por parte de la Comunidad Nacional e Internacional, además de asegurar la conservación, digitalización y sistematización de documentos históricos y etnográficos patrimoniales con estándares internacionales</p>
+                          </div>
+                      </div>
+                  </div>   
+              </div>
+          </div>
+          <script>
+                  gsap.registerPlugin(ScrollTrigger);
+                  
+                  let t1 = gsap.timeline({delay:0.3});
+                  t1.from('.header',{duration: 0.4, ease:"power2. out" ,opacity:0, y:-60});
+                  t1.from('.none',{duration: 0.4, ease:"power2. out" , opacity:0, y:-60});
+                  t1.from('.titulos',{duration: 0.4, ease:"power2. out" , opacity:0, y:-20});
+                  t1.from('.hoja',{stagger: 0.2,duration: 0.4, ease:"power2. out" , opacity:0, y:-60});
+                  
+                  let tween3 = gsap.from('.hoja2 ',{
+                    scrollTrigger: '.hoja2 ',
+                    duration:.4,
+                    scale:0,
+                    stagger: 0.4,
+                  });
+                
+      </script>
+      </div>
+    </section>

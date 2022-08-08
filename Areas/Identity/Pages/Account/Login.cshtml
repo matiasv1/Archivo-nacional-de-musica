@@ -1,0 +1,55 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+<br />
+<div class="container p-5 mt-2 mb-2" style="width:450px; background-color:white;margin-top:30px;margin-bottom:30px;">
+       
+        <section>
+            <h1 class="pt-3 pl-0 d-flex justify-content-center">@ViewData["Title"]</h1>
+            <div class="container justify-content-center d-flex m-0"> <img src="~/img/login.jpg" class="rounded img-fluid "></div>
+            <form id="account" method="post">
+                         <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input asp-for="Input.Password" class="form-control" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe" />
+                            Recordarme?
+                        </label>
+                    </div>
+                </div>
+                <br />
+                <div class="form-group justify-content-center d-flex">
+                    <button  type="submit" style="width:350px;" class="btn btn-primary mb-2 mt-2 ">Iniciar Sesión</button>
+                </div>
+                <div class="form-group">
+                    <p class="justify-content-center d-flex">
+                        <a class="btn btn-danger mt-1 " style="width:350px; margin:0 auto;" id="forgot-password" asp-page="./ForgotPassword">Olvidaste la Contraseña?</a>
+                    </p>
+                    <p class=" justify-content-center d-flex">
+                        <a class="btn btn-info" style="width:350px;" id="resend-confirmation" asp-page="./ResendEmailConfirmation">Reenviar mail de confirmacion</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+   
+    
+</div>
+<br />
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

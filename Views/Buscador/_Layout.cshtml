@@ -1,0 +1,29 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Views/Shared/_Layout.cshtml";
+    }
+}
+
+<div style="background-color: white; padding-left:5%;padding-bottom:5%;">
+    <h1 class="pt-3 pl-0 d-flex justify-content-center" >Sección de Búsquedas</h1>
+    <h2 class="text-dark text-center pt-3 mb-3 " ><img src="~/logos/icons8-search-property-48.png" class="mb-2"> Ingrese los parámetros de la búsqueda</h2>
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="Consulta" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+</div>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

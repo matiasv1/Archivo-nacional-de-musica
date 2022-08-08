@@ -1,0 +1,27 @@
+﻿<section>
+     <div class="hoja shadow" style="width:100%;">
+         <h4 class="d-flex justify-content-center">Formulario de Búsqueda</h4>
+         <form asp-controller="Buscador" asp-action="Resultados" asp-route-id="@ViewBag.id" method="post" class="form shadow p-3 mb-4 justify-content-center" >
+             <div class="mb-3">
+                 <label class="form-label">Buscar:</label>
+                 <input class="form-control" name="keywords" placeholder="Buscar" >
+             </div>
+             
+             <div class="mb-3">
+                 <label class="form-label">Autores:</label>
+                 <input class="form-control" type="text" name="autores" placeholder="Ingrese Autores" >
+             </div>
+             <div class="mb-3">
+                 <label class="form-label">Desde:</label>
+                 <input class="form-control" type="date" name="desde" placeholder="Ingrese Fecha inicial" >
+             </div>
+             <div class="mb-3">
+                 <label class="form-label">Hasta:</label>
+                 <input class="form-control" type="date" name="hasta" placeholder="Ingrese Fecha final" >
+             </div>
+             <button type="submit" class="btn btn-primary">Buscar</button>
+
+         </form>
+    </div>
+    
+</section>

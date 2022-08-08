@@ -1,0 +1,54 @@
+﻿@{
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid w-100 mt-1 " style = "display: flex;justify-content: center;">
+	<div class="container w-50 m-1 p-2 mt-3"  style = "display: flex;justify-content: center;" >
+		<div class="login-logout-tab" style="background-color:white; border-radius:5px;">
+			<div class="card-header">
+				@if(@ViewData["Title"].Equals("Registrarse")) {
+					<ul class="nav nav-tabs card-header-tabs text-center justify-content-center">
+						<li class="nav-item" >
+							<a class="nav-link" href="/Identity/Account/Login" style="color:black;">Iniciar Sesión</a>
+						</li>
+						<li class="nav-item" style="background-color: white;">
+							<a class="nav-link" href="/Identity/Account/Register"style="color:black;" >Registrarse</a>
+						</li>
+					</ul>
+				}
+				else {
+					<ul class="nav nav-tabs card-header-tabs text-center justify-content-center" >
+						<li class="nav-item"  style="background-color: white;">
+							<a class="nav-link" href="/Identity/Account/Login" style="color:black;">Iniciar Sesión</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/Identity/Account/Register" style="color:black;">Registrarse</a>
+						</li>
+					</ul>
+				}
+				
+					
+			</div>
+			<div class="card-content">
+				<div class="row">
+					<div class="col-md-12">
+						@RenderBody()
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@section Scripts {
+	@RenderSection("Scripts",required: false)
+	<script type="text/javascript">
+		$(function () {
+			var current = location.pathname;
+			$('.nav-tabs li a'.each(function () {
+				var $this = $(this);
+				if (current.indexOf($this.attr('href')) !== -1){
+					$this.addClass('active');
+				} 
+			}))
+		})
+	</script>
+}

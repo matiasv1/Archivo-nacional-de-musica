@@ -1,0 +1,56 @@
+﻿@using HtmlAgilityPack
+@model Dictionary<string,string>
+
+@{
+    ViewData["Title"] = "Resultados";
+}
+<section>
+	<div class="shadow">
+		
+		@if(Model is not null)
+		{
+			<h1 class="d-flex justify-content-center">Resultados</h1>
+			<br />
+			<div class="m-4 p-3">
+				<h5>Se encontraron @ViewBag.largo resultados</h5>
+				<table>
+					
+					<thead  style="background-color:#212529; color:white;">
+						<tr class="p-2">
+							<th class="p-2">Id</th>
+							<th class="p-2">Resultados</th>
+							<th class="p-2">Acción</th>
+						</tr>
+						
+					</thead>
+					<tbody>	
+					@{
+						var result = 1;
+					@foreach (var item in Model) {
+					<tr>
+						<td>@result
+						</td>
+						<td>
+							<div class="shadow mt-4 mb-4 mx-4 p-3">
+								@Html.Raw(item.Key)
+							</div>
+						</td>
+						<td>
+						<!-- 1par = label, 2par = metodo, 3par parametros del metodo, 4par = css-->
+						    @Html.ActionLink("Guardar", "Guardar", new { s = @ViewBag.Peticion, url = @item.Value}, new { @class = "btn btn-success" }) 
+						
+						</td>
+								</tr>
+								result += 1;
+							}
+						}
+				</tbody>
+			</table>
+			</div>
+			
+				
+			
+		}
+	</div>
+</section>
+

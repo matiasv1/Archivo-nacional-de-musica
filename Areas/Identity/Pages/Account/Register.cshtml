@@ -1,0 +1,65 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Registrarse";
+}
+
+<div class="container pl-5 pl-5 pb-5" style="width:600px; background-color:white;margin-top:30px;margin-bottom:30px;">
+    <h1 class="pt-3 pl-0 d-flex justify-content-center " >@ViewData["Title"]</h1>
+<div class="row p-3 ">
+    <div class="col-md-12">
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input asp-for="Input.FirstName" class="form-control" placeholder="Ingresar Nombre"  />
+                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input asp-for="Input.LastName" class="form-control" placeholder="Ingresar Apellidos"  />
+                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Email</label>
+                <input asp-for="Input.Email" class="form-control" placeholder="Ingresar Email" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input asp-for="Input.Password" class="form-control" placeholder="Ingresar Contraseña"  />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Confirmar contraseña</label>
+                        <input asp-for="Input.ConfirmPassword" class="form-control"  placeholder="Confirmar Contraseña" />
+                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary mt-2">Registrarse</button>
+        </form>
+    </div>
+</div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

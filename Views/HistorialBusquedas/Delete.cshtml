@@ -1,0 +1,38 @@
+﻿@model AppV1.Models.HistorialBusquedas
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container w-25 mt-4 p-4" style="margin: 0 auto; background-color:white;">
+    <h4>Eliminar, ¿Esta seguro?</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Peticion)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Peticion)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.URL)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.URL)
+        </dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-outline-danger" />
+        <hr />
+        <a class ="btn btn-outline-success" asp-action="Index">Back to List</a>
+    </form>
+<div>
+    
+</div>

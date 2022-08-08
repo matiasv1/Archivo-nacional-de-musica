@@ -1,0 +1,78 @@
+﻿@model IEnumerable<AppV1.Models.Peticion>
+
+@{
+    ViewData["Title"] = "Peticiones";
+    
+}
+<div class="container hoja" style="margin-top:20px">
+    <div class="container">
+        <br />
+        <h1 class="text-dark d-flex justify-content-center">Registro de Peticiones</h1>
+         <br />
+         <div class="container d-flex justify-content-end">
+              <form action="Peticions/Filtrar" method="post">
+                 <select name="filtro" id="filtro">
+                     <option value="1">Pendiente</option>
+                     <option value="2">En progreso</option>
+                     <option value="3">Finalizado</option>
+                     <option value="4" selected>Todos</option>
+                 </select>
+                 <button class="btn btn-primary" type="submit">Filtrar</button>
+             </form>
+         </div>
+         <br/>
+       <table class="table tabla" style="border-radius:3px;">
+            <thead style="background-color:#212529; color:white;">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Asunto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EmailEmisor)
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+        @foreach (var item in Model) {
+                <tr style="background-color: white;">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Estado)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Asunto)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fecha)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailEmisor)
+                    </td>
+                    <td>
+                        
+                       
+                        @if (item.Estado.Equals("Pendiente"))
+                        {
+                            <a class="btn btn-outline-success" asp-controller="Buscador" asp-action="Consulta" asp-route-id="@item.PeticionID">Realizar Consulta</a> 
+                        }    
+                        @if (item.Estado.Equals("En progreso"))
+                        {
+                            <a class="btn btn-outline-success" asp-controller="Buscador"  asp-action="Consulta" asp-route-id="@item.PeticionID">Continuar Búsqueda</a> 
+                            <a class="btn btn-outline-warning" asp-action="Finalizar" asp-route-id="@item.PeticionID">Finalizar</a>           
+                        }   
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.PeticionID">Detalles</a> 
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.PeticionID">Eliminar</a> 
+                    </td>
+                </tr>
+        }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+﻿@{
+    if (ViewData.TryGetValue("ParentLayout", out var parentLayout))
+    {
+        Layout = (string)parentLayout;
+    }
+    else
+    {
+        Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+    }
+}
+<div class="divFondo" style="background-color: white; padding-left:5%;padding-bottom:5%;margin:5%;">
+    
+<h2 class="pt-3 pl-0 d-flex justify-content-center" >Gestión de cuenta</h2>
+
+<div>
+    <h4>Cambiar la configuración de su cuenta</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-3">
+            <partial name="_ManageNav" />
+        </div>
+        <div class="col-md-9">
+            @RenderBody()
+        </div>
+    </div>
+</div>
+</div>
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}
